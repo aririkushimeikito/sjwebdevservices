@@ -1,5 +1,25 @@
 # SJ Webdev Services — Bluehost/Apache config
 
+# ============================================================
+#  MAINTENANCE MODE  (backend toggle — no button, no code edits)
+#  The whole site shows a friendly "temporarily down" page (HTTP 503)
+#  ONLY while a file named  maintenance.on  exists in this folder.
+#
+#    TAKE THE SITE OFFLINE :  create an empty file named  maintenance.on
+#         (cPanel > File Manager > public_html > "+ File")
+#    BRING THE SITE BACK   :  delete the  maintenance.on  file
+#
+#  When the flag file is gone the site is 100% back to normal — no other
+#  change needed. 503 tells Google it's only temporary (SEO-safe).
+# ============================================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{DOCUMENT_ROOT}/maintenance.on -f
+  RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
+  RewriteRule ^ - [R=503,L]
+</IfModule>
+ErrorDocument 503 /maintenance.html
+
 # Redirect the old combined About/Services URL to the new Services page
 Redirect 301 /about-services.html /services.html
 
