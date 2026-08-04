@@ -164,6 +164,14 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; letter-spa
 }
 .theme-toggle:hover { color: var(--cobalt-2); border-color: var(--cobalt); transform: translateY(-1px); }
 .theme-toggle svg { width: 19px; height: 19px; }
+.gemini-link {
+  width: 42px; height: 42px; border-radius: 10px;
+  border: 1.5px solid var(--line-2);
+  display: inline-grid; place-items: center; background: var(--bg-2);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.gemini-link:hover { border-color: var(--cobalt); transform: translateY(-1px); }
+.gemini-link svg { width: 21px; height: 21px; }
 .theme-toggle .icon-sun { display: none; }
 [data-theme="light"] .theme-toggle .icon-sun { display: block; }
 [data-theme="light"] .theme-toggle .icon-moon { display: none; }
