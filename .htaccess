@@ -34,6 +34,7 @@ ErrorDocument 404 /404.html
   ExpiresByType image/png "access plus 6 months"
   ExpiresByType image/jpeg "access plus 6 months"
   ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType video/mp4 "access plus 6 months"
 </IfModule>
 
 # Gzip compression
