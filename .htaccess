@@ -1,36 +1,57 @@
 # SJ Webdev Services — Bluehost/Apache config
 
-# ============================================================
-#  MAINTENANCE MODE  (backend toggle — no button, no code edits)
-#  The whole site shows a friendly "temporarily down" page (HTTP 503)
-#  ONLY while a file named  maintenance.on  exists in this folder.
-#
-#    TAKE THE SITE OFFLINE :  create an empty file named  maintenance.on
-#         (cPanel > File Manager > public_html > "+ File")
-#    BRING THE SITE BACK   :  delete the  maintenance.on  file
-#
-#  When the flag file is gone the site is 100% back to normal — no other
-#  change needed. 503 tells Google it's only temporary (SEO-safe).
-# ============================================================
+Options -MultiViews
+DirectoryIndex index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
+
+  # ============================================================
+  #  MAINTENANCE MODE  (backend toggle — no button, no code edits)
+  #  The whole site shows a friendly "temporarily down" page (HTTP 503)
+  #  ONLY while a file named  maintenance.on  exists in this folder.
+  #    TAKE OFFLINE : create an empty file named  maintenance.on
+  #    BRING BACK   : delete the  maintenance.on  file
+  # ============================================================
   RewriteCond %{DOCUMENT_ROOT}/maintenance.on -f
   RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
   RewriteRule ^ - [R=503,L]
+
+  # ---- Pretty URLs (no .html extension) ----
+
+  # Legacy combined page -> Services
+  RewriteRule ^about-services(?:\.html)?/?$ /services [R=301,L]
+
+  # /index or /index.html  ->  /   (home shows just the domain)
+  RewriteCond %{THE_REQUEST} \s/+index(?:\.html)?[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # /page.html  ->  /page   (drop the .html in the address bar)
+  RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,QSA]
+
+  # Remove a trailing slash from non-directory URLs (e.g. /about/ -> /about)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+?)/+$ /$1 [R=301,L]
+
+  # Internally serve /page from page.html (only if the file exists)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
 </IfModule>
+
+# Error pages
 ErrorDocument 503 /maintenance.html
-
-# Redirect the old combined About/Services URL to the new Services page
-Redirect 301 /about-services.html /services.html
-
-# Custom 404 page
 ErrorDocument 404 /404.html
 
 # Basic caching for static assets
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
   ExpiresByType image/png "access plus 6 months"
   ExpiresByType image/jpeg "access plus 6 months"
   ExpiresByType image/svg+xml "access plus 6 months"
