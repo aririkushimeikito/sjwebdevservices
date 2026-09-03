@@ -1,0 +1,44 @@
+# SJ Webdev Services
+
+> SJ Webdev Services designs and hand-codes modern, responsive websites for businesses across the United States. Every site is custom-built (no drag-and-drop page builders), fast-loading, mobile-friendly and SEO-ready — built to establish a credible online presence and turn visitors into customers. Founded and run by web designer & developer Sherwin Galindo.
+
+## Key facts
+
+- **Business name:** SJ Webdev Services
+- **Founder / lead developer:** Sherwin Galindo
+- **What we do:** Custom website design and development, landing pages, ecommerce, SEO foundations and ongoing maintenance
+- **How we build:** Hand-coded, custom-built websites — not WordPress or drag-and-drop builders — for speed, security and search performance
+- **Area served:** United States (remote / online delivery nationwide)
+- **Contact:** sjwebdevservices@gmail.com
+- **Consultation:** Free, no-pressure consultation before any project begins; every quote is fixed before work starts
+- **Website:** https://sjwebdevservices.com
+
+## Services
+
+- [Website Design](https://sjwebdevservices.com/services#design): Custom, brand-aligned designs that look professional and build trust.
+- [Website Development](https://sjwebdevservices.com/services#development): Hand-coded, fast and reliable front-end development.
+- [Ecommerce Development](https://sjwebdevservices.com/services#ecommerce): Online stores built to sell, with a smooth checkout experience.
+- [Landing Pages](https://sjwebdevservices.com/services#landing-pages): Focused, high-converting pages for campaigns and launches.
+- [Website Maintenance](https://sjwebdevservices.com/services#maintenance): Ongoing updates, fixes and improvements after launch.
+- [SEO Foundations](https://sjwebdevservices.com/services#seo): Clean structure, metadata and performance so pages can rank.
+
+## Pages
+
+- [Home](https://sjwebdevservices.com/): Overview of SJ Webdev Services and what we build.
+- [About](https://sjwebdevservices.com/about): The studio, its approach and the person behind it.
+- [Services](https://sjwebdevservices.com/services): Full list of services with a detailed FAQ.
+- [Portfolio](https://sjwebdevservices.com/portfolio): Live websites designed and developed for real businesses.
+- [Contact](https://sjwebdevservices.com/contact): Start a project or book a free consultation.
+
+## Common questions
+
+- **How long does a website take?** Landing pages take a few days; a multi-page business website usually takes one to three weeks depending on scope.
+- **How much does a website cost?** It depends on scope — a focused landing page at the lower end, a multi-page business site in the middle, ecommerce or custom functionality at the top. Every quote is fixed before work begins.
+- **Why hand-coded instead of WordPress or a builder?** Hand-coded sites load faster, rank better, can't break from plugin updates and are far harder to hack.
+- **Do you offer support after launch?** Yes — every project includes a post-launch support window, with optional ongoing maintenance plans.
+
+## Contact
+
+- Email: sjwebdevservices@gmail.com
+- Facebook: https://www.facebook.com/sjwebdevservices
+- Start a project: https://sjwebdevservices.com/contact
