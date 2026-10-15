@@ -1,0 +1,59 @@
+name: Capture portfolio thumbnails
+
+# Screenshots every site in .github/scripts/portfolio-sites.json and commits
+# optimised WebP thumbnails to images/portfolio/ on the branch it runs from.
+# Run it manually (Actions tab -> Run workflow) whenever a client site changes.
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Space-separated slugs to refresh (leave empty for all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: capture-thumbnails-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: .github/scripts
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Capture screenshots
+        working-directory: .github/scripts
+        run: node capture-thumbnails.mjs ${{ github.event.inputs.slugs }}
+
+      - name: Report
+        run: cat .github/scripts/capture-results.json
+
+      - name: Commit thumbnails
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/portfolio
+          if git diff --cached --quiet; then
+            echo "No thumbnail changes."
+            exit 0
+          fi
+          git commit -m "Refresh portfolio thumbnails (automated capture)"
+          git push origin HEAD:${{ github.ref_name }}
