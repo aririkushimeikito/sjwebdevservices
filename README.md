@@ -6,21 +6,33 @@ Stack: HTML5 · CSS3 · vanilla JavaScript · Space Grotesk + JetBrains Mono (Go
 ## Files
 
 ```
-index.html        Home
-about.html        About (new — split out from the old about-services.html)
-services.html     Services (8 services, process, FAQ)
-portfolio.html    Portfolio (30 projects, live filters)
-contact.html      Contact (cards + enquiry form)
-404.html          Custom not-found page
+index.html            Home                    -> /
+about/index.html      About                   -> /about/
+services/index.html   Services (8 services, process, FAQ)   -> /services/
+portfolio/index.html  Portfolio (30 projects, live filters) -> /portfolio/
+contact/index.html    Contact (cards + enquiry form)        -> /contact/
+404.html              Custom not-found page
 css/style.css     Full design system (dark + light themes)
 js/main.js        Theme toggle, mobile nav, reveals, counters, filters, form
 robots.txt        Allows crawling, points to sitemap
 sitemap.xml       All 5 pages, canonical domain
-.htaccess         301 redirect old about-services.html → services.html,
-                  404 handler, caching, gzip
+.htaccess         301 redirects (old about-services.html, *.html -> clean
+                  URLs), 404 handler, caching, gzip — Apache/Bluehost only
 ```
 
-## Deploying to Bluehost (sjwebdevservices.com)
+Each page lives in its own folder as `index.html`, so clean URLs such as
+`/about/` work on any static host (GitHub Pages, Bluehost, Netlify, ...)
+without server rewrite rules. All internal links and asset paths are
+relative, so the site also works when served from a sub-path.
+
+## Deploying with GitHub Pages (current setup)
+
+Pushes to `main` run `.github/workflows/deploy-pages.yml`, which publishes
+the repo root to GitHub Pages. `CNAME` sets the custom domain
+`sjwebdevservices.com`; the domain's DNS must point at GitHub Pages
+(A/AAAA records for the apex, or a CNAME for `www`).
+
+## Deploying to Bluehost (alternative)
 
 1. Open cPanel → File Manager → `public_html`.
 2. Upload the contents of this folder (not the folder itself) into `public_html`.
