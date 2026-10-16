@@ -1,32 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sjwebdevservices.com/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sjwebdevservices.com/about/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sjwebdevservices.com/services/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sjwebdevservices.com/portfolio/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/sherwingalindo-800.webp</image:loc><image:title>Screenshot of the Sherwin Galindo Portfolio website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/scratchkitchengallos-800.webp</image:loc><image:title>Screenshot of the Scratch Kitchen by Gallos website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/thejughandleinn-800.webp</image:loc><image:title>Screenshot of The Jug Handle Inn website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/hgpizzaplaza-800.webp</image:loc><image:title>Screenshot of the Pizza Plaza of Warminster website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/plumsteaddiner-800.webp</image:loc><image:title>Screenshot of the Plumstead Diner website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/the86west-800.webp</image:loc><image:title>Screenshot of the 86 West website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/watersidecafeanddiner-800.webp</image:loc><image:title>Screenshot of the Waterside Cafe &amp; Diner website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/amaliospizzaandpasta-800.webp</image:loc><image:title>Screenshot of the Amalio&#x27;s Pizza &amp; Pasta website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/seafoodadagio-800.webp</image:loc><image:title>Screenshot of the Adagio Seafood website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/johnnyapplesrestaurant-800.webp</image:loc><image:title>Screenshot of the Johnny Apple&#x27;s Restaurant website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/steinsfamousdeli-800.webp</image:loc><image:title>Screenshot of the Steve Stein&#x27;s Famous Deli website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/buonavia-800.webp</image:loc><image:title>Screenshot of the Buona Via website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/randazzospizzahv-800.webp</image:loc><image:title>Screenshot of the Randazzo&#x27;s Pizza website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/nicospizzajamison-800.webp</image:loc><image:title>Screenshot of the Nico&#x27;s Pizza Jamison website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/rootsrestaurants-800.webp</image:loc><image:title>Screenshot of the Roots Restaurants website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/taorminasivyland-800.webp</image:loc><image:title>Screenshot of the Taormina&#x27;s Ivyland website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/pocos-800.webp</image:loc><image:title>Screenshot of the Pocos website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/texmexconnection.svg</image:loc><image:title>Tex Mex Connection website project card</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/dagwoodspub-800.webp</image:loc><image:title>Screenshot of the Dagwood&#x27;s Pub website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/theboroughpub-800.webp</image:loc><image:title>Screenshot of the The Borough Pub website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/jojostavern-800.webp</image:loc><image:title>Screenshot of the JoJo&#x27;s Tavern website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/bayponyinnpa-800.webp</image:loc><image:title>Screenshot of the Bay Pony Inn website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/farmhousetavern-800.webp</image:loc><image:title>Screenshot of the Farmhouse Tavern website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/jamisonpourhouse-800.webp</image:loc><image:title>Screenshot of the Jamison Pour House website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/newbritaininn-800.webp</image:loc><image:title>Screenshot of the New Britain Inn website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/xroadstavern-800.webp</image:loc><image:title>Screenshot of the Crossroads Tavern website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/onealspub-800.webp</image:loc><image:title>Screenshot of the Oneals Pub website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/thewhiskeygirlsaloon-800.webp</image:loc><image:title>Screenshot of the Whiskey Girl Saloon website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/digitalonereviews-800.webp</image:loc><image:title>Screenshot of the Digital One Reviews website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/danielsonlandco-800.webp</image:loc><image:title>Screenshot of the Danielson Land Co website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/geerlingsgardencenter-800.webp</image:loc><image:title>Screenshot of the Geerlings Garden Center website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/packnmailttx-800.webp</image:loc><image:title>Screenshot of the Pack &#x27;N&#x27; Mail website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/jamisoncarpets-800.webp</image:loc><image:title>Screenshot of the Jamison Carpets website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/salonannanoelle-800.webp</image:loc><image:title>Screenshot of the Salon Anna Noelle website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/patriotlandscapenh-800.webp</image:loc><image:title>Screenshot of the Patriot Landscaping website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/genuinecarehha-800.webp</image:loc><image:title>Screenshot of the Genuine Care HHA website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/texasgiantmedia-800.webp</image:loc><image:title>Screenshot of the Texas Giant Media website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/ivsforme-800.webp</image:loc><image:title>Screenshot of the Ivs For Me website</image:title></image:image>
+    <image:image><image:loc>https://sjwebdevservices.com/images/portfolio/portfolio/hamiltonkitchens-800.webp</image:loc><image:title>Screenshot of the Hamilton Kitchens website</image:title></image:image>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sjwebdevservices.com/contact/</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

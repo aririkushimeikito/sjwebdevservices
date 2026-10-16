@@ -81,3 +81,28 @@ First-ever load of a thumbnail can take a few seconds while mShots renders it.
 - Semantic landmarks, one h1 per page, alt text on all images
 - sitemap.xml + robots.txt (submit the sitemap in Google Search Console)
 - 301 redirect preserves link equity from the old about-services.html URL
+
+## Search visibility checklist (SEO / AEO / GEO)
+
+Everything in the repo is in place: per-page titles and descriptions, canonical
+URLs, Open Graph and Twitter cards, Schema.org data (Organization/LocalBusiness,
+Person, Service, FAQPage, ItemList of portfolio sites, breadcrumbs), an XML
+sitemap with image entries, `robots.txt` that welcomes AI crawlers, and
+`llms.txt` for answer engines. The remaining levers live outside the repo:
+
+1. **Google Search Console** — add `sjwebdevservices.com` (Domain property),
+   verify via DNS TXT at Bluehost, submit `https://sjwebdevservices.com/sitemap.xml`.
+2. **Bing Webmaster Tools** — import the Search Console property (one click),
+   which also covers DuckDuckGo, Yahoo and Copilot.
+3. **Google Business Profile** — create or claim the profile as a
+   service-area business (web designer) covering Bucks County / Philadelphia.
+   Use the exact name, email and site URL from the footer, and link back.
+4. **Client footer credits** — a small "Website by SJ Webdev Services" link in
+   the footer of each client site is the strongest backlink source available:
+   39 relevant, local, real-business domains.
+5. **Reviews** — ask clients for Google reviews on the Business Profile; add
+   genuine ones to the site later with `Review` markup.
+6. **Directories** — Clutch, DesignRush, Yelp (web design category), Bucks
+   County Chamber of Commerce, with identical name/URL/email everywhere.
+7. **Keep `lastmod` honest** — update `sitemap.xml` and `dateModified` in the
+   page JSON-LD whenever content changes.
