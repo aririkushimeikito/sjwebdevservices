@@ -30,9 +30,13 @@ async function dismissPopups(page) {
     "#onetrust-accept-btn-handler", ".cky-btn-accept", ".cc-btn.cc-dismiss", ".cc-allow",
     "button:has-text('Accept all')", "button:has-text('Accept All')", "button:has-text('Accept')",
     "button:has-text('I agree')", "button:has-text('Got it')", "button:has-text('OK')",
-    "[aria-label='Close']", "[aria-label='close']", "button.close", ".popup-close", ".pum-close",
-    ".mfp-close", ".fancybox-close-small", "button:has-text('No thanks')", "button:has-text('Close')",
+    "[aria-label='Close']", "[aria-label='close']", "[aria-label='Close dialog']", "button.close", ".popup-close",
+    ".pum-close", ".mfp-close", ".fancybox-close-small", ".sgpb-popup-close-button-1", ".elementor-popup-modal .dialog-close-button",
+    ".wp-block-popup-close", "[class*='modal'] [class*='close']", "[class*='popup'] [class*='close']",
+    "[class*='Modal'] [class*='close']", "[id*='popup'] [class*='close']", "button:has-text('No thanks')",
+    "button:has-text('Close')", "button:has-text('×')", "a:has-text('×')", "span:has-text('×')",
   ];
+  try { await page.keyboard.press("Escape"); await sleep(300); } catch {}
   for (const sel of selectors) {
     try {
       const el = page.locator(sel).first();
@@ -58,13 +62,15 @@ async function viaChromium(url) {
   try {
     const res = await page.goto(url, { waitUntil: "load", timeout: 45000 });
     await page.waitForLoadState("networkidle", { timeout: 15000 }).catch(() => {});
-    await sleep(3000); // give a JS interstitial a chance to clear on its own
+    await sleep(3000);
+    // A JS interstitial may clear on its own; give it up to ~25 s before giving up.
+    for (let i = 0; i < 6 && (await looksChallenged(page)); i++) await sleep(4000);
     if ((res && res.status() >= 400) || (await looksChallenged(page))) throw new Error("challenge");
     await dismissPopups(page);
     await page.evaluate(() => window.scrollTo(0, 600));
     await sleep(800);
     await page.evaluate(() => window.scrollTo(0, 0));
-    await sleep(1500);
+    await sleep(3000); // let hero images / videos finish loading
     await dismissPopups(page);
     return await page.screenshot({ type: "png", clip: { x: 0, y: 0, ...VIEWPORT } });
   } finally {
