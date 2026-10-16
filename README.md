@@ -58,8 +58,17 @@ Formspree — the markup is ready; just add an `action` and `method="POST"`.
 
 ## Portfolio thumbnails
 
-Thumbnails use the same WordPress mShots screenshot service as the current
-site, so they always show the live client sites and need no image files.
+Thumbnails are self-hosted WebP files in `images/portfolio/` (400, 800 and
+1200 px wide, 8:5), served with `srcset` so each visitor downloads only the
+size they need. They load from the same host as the page, so there is no
+third-party request and no on-demand rendering delay.
+
+To refresh them after a client site changes, run the "Capture portfolio
+thumbnails" workflow from the Actions tab (leave the slugs input empty for
+all sites, or list specific slugs from `.github/scripts/portfolio-sites.json`).
+It screenshots each site, falls back to the mShots service for sites that
+show a bot-check page, and commits the new files to the branch it ran on.
+To add a project, add its URL to that JSON file and run the workflow.
 First-ever load of a thumbnail can take a few seconds while mShots renders it.
 
 ## SEO checklist (already done)
