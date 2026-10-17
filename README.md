@@ -9,7 +9,7 @@ Stack: HTML5 · CSS3 · vanilla JavaScript · Space Grotesk + JetBrains Mono (Go
 index.html            Home                    -> /
 about/index.html      About                   -> /about/
 services/index.html   Services (8 services, process, FAQ)   -> /services/
-portfolio/index.html  Portfolio (30 projects, live filters) -> /portfolio/
+portfolio/index.html  Portfolio (38 projects, live filters) -> /portfolio/
 contact/index.html    Contact (cards + enquiry form)        -> /contact/
 404.html              Custom not-found page
 css/style.css     Full design system (dark + light themes)
