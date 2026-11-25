@@ -50,11 +50,23 @@ the repo root to GitHub Pages. `CNAME` sets the custom domain
 
 ## Contact form
 
-The form is static-host friendly: on submit it opens the visitor's email app
-with a fully pre-filled message to sjwebdevservices@gmail.com (name, phone,
-company, service, budget, message). If you later want submissions delivered
-without the email app step, swap the form to a service like FormSubmit or
-Formspree — the markup is ready; just add an `action` and `method="POST"`.
+Submissions go to FormSubmit's AJAX endpoint from `js/main.js`; the HTML form
+has no usable `action`, so a bot that only parses the page finds nothing to
+post to. Before a message is sent the script runs a bot check and silently
+discards anything that trips it (the sender still sees the normal "message
+sent" text, so bots learn nothing):
+
+- honeypot fields (`_honey`, `website`) that real visitors never see
+- the form was submitted less than 6 seconds after the page loaded
+- fewer than 5 keystrokes/clicks happened inside the form
+- the message has under 4 words, or is just a link
+- the message matches a known spam template, e.g. "I would like more
+  information. Please contact me by email"
+
+To add a new template, append a regex to `SPAM_PATTERNS` in `js/main.js`.
+If spam still gets through, it is being posted directly to FormSubmit,
+bypassing the site; the fix for that is a form backend that verifies a
+challenge (e.g. Cloudflare Turnstile + a Worker, or Formspree with reCAPTCHA).
 
 ## Portfolio thumbnails
 
