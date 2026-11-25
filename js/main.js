@@ -114,7 +114,38 @@
   /* ---------- Contact form (direct submit via FormSubmit — no email app) ---------- */
   var form = document.getElementById("contact-form");
   if (form) {
-    var ENDPOINT = "https://formsubmit.co/ajax/sjwebdevservices@gmail.com";
+    /* Endpoint is only assembled at runtime, never present in the HTML. */
+    var ENDPOINT = "https://formsubmit.co/ajax/" + ["sjwebdevservices", "gmail.com"].join("@");
+    var loadedAt = Date.now();
+    var firstTouch = 0;
+    var touches = 0;
+    var markTouch = function () { touches += 1; if (!firstTouch) firstTouch = Date.now(); };
+    form.addEventListener("keydown", markTouch);
+    form.addEventListener("pointerdown", markTouch);
+    form.addEventListener("input", markTouch);
+
+    /* Known bot templates ("I would like more information. Please contact me by email…"). */
+    var SPAM_PATTERNS = [
+      /would like (?:some )?more information/i,
+      /(?:please )?contact me (?:by|via) e-?mail/i,
+      /(?:i am|we are) interested in your (?:services|offer)/i,
+      /increase your (?:sales|traffic|ranking)/i,
+      /(?:seo|backlink|guest post) (?:service|package|offer)/i,
+      /\b(?:crypto|bitcoin|casino|loan|viagra)\b/i
+    ];
+    var looksLikeSpam = function (f) {
+      var msg = f.message.replace(/\s+/g, " ");
+      var words = msg.split(" ").filter(Boolean).length;
+      if (document.getElementById("cf-honey").value || document.getElementById("cf-website").value) return "honeypot";
+      if (Date.now() - loadedAt < 6000) return "too-fast";          /* filled a 6-field form in under 6 s */
+      if (touches < 5 || !firstTouch) return "no-interaction";       /* no typing or clicks inside the form */
+      if (words < 4) return "too-short";
+      if (/(https?:\/\/|www\.)\S+/i.test(msg) && words < 12) return "link-only";
+      for (var i = 0; i < SPAM_PATTERNS.length; i++) if (SPAM_PATTERNS[i].test(msg)) return "template";
+      if (f.name.toLowerCase() === f.email.split("@")[0].toLowerCase() && words < 12) return "name-is-email";
+      return "";
+    };
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = document.getElementById("form-status");
@@ -129,12 +160,17 @@
         return;
       }
 
-      /* honeypot — silently drop bot submissions */
-      var honey = document.getElementById("cf-honey");
-      if (honey && honey.value) return;
+      /* Bot check — spam is silently discarded but shown the normal success message. */
+      var spam = looksLikeSpam({ name: name, email: email, message: message });
+      if (spam) {
+        if (status) status.textContent = "/ message sent — we'll reply within one business day. thank you!";
+        form.reset();
+        return;
+      }
 
       var company = get("cf-company").trim();
       var payload = {
+        _honey: "",
         name: name,
         email: email,
         phone: get("cf-phone").trim() || "—",
